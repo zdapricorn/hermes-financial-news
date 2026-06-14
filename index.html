@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nô Tì • Financial News Digest</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0f;color:#e2e8f0;font-family:'Commissioner',sans-serif;min-height:100vh;padding:20px}
+.container{max-width:1280px;margin:0 auto}
+.header{text-align:center;padding:30px 0 20px;position:relative}
+.header h1{font-size:clamp(1.5rem,4vw,2.5rem);font-weight:900;background:linear-gradient(135deg,#fbbf24,#fb923c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-0.02em}
+.header .sub{color:#64748b;font-size:0.85rem;margin-top:8px;letter-spacing:0.3em;text-transform:uppercase}
+.header .time{color:#94a3b8;font-size:0.8rem;margin-top:4px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:20px}
+.card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:20px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transition:border-color .2s,transform .2s}
+.card:hover{border-color:rgba(255,255,255,0.12);transform:translateY(-1px)}
+.card-title{font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.15em;color:#64748b;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.card-title .icon{font-size:1rem}
+.item{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04)}
+.item:last-child{border-bottom:none}
+.item-name{font-size:0.85rem;font-weight:500;color:#cbd5e1}
+.item-price{font-size:0.9rem;font-weight:700;font-variant-numeric:tabular-nums;text-align:right}
+.item-change{font-size:0.75rem;font-weight:600;font-variant-numeric:tabular-nums;min-width:70px;text-align:right}
+.up{color:#4ade80}
+.down{color:#fb7185}
+.neutral{color:#94a3b8}
+.item-row{display:flex;align-items:center;gap:10px;flex:1}
+.item-values{display:flex;align-items:center;gap:10px}
+.news-card{grid-column:1/-1}
+.news-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:12px}
+.news-item{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:12px;padding:14px 16px;transition:border-color .2s}
+.news-item:hover{border-color:rgba(147,197,253,0.3)}
+.news-item .source{font-size:0.65rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:#64748b}
+.news-item a{color:#93c5fd;text-decoration:none;font-size:0.85rem;font-weight:500;line-height:1.4;display:block;margin-top:4px}
+.news-item a:hover{text-decoration:underline}
+.analysis-card{grid-column:1/-1}
+.analysis-content{font-size:0.85rem;line-height:1.6;color:#94a3b8}
+.analysis-content strong{color:#e2e8f0}
+.footer{text-align:center;padding:30px 0 10px;font-size:0.75rem;color:#475569}
+.footer .brand{color:#64748b;font-weight:600}
+@keyframes flash{0%,100%{opacity:1}50%{opacity:0.6}}
+.flash{animation:flash 1.2s ease-in-out 1}
+@media(max-width:640px){
+  body{padding:12px}
+  .card{padding:14px}
+  .item{flex-wrap:wrap;gap:4px}
+  .item-row{flex:1 1 100%}
+  .item-values{flex:1 1 100%;justify-content:space-between}
+  .news-list{grid-template-columns:1fr}
+}
+.print-only{display:none}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>📊 Báo Cáo Tài Chính Toàn Cầu</h1>
+  <div class="sub">Financial News Digest</div>
+  <div class="time">Cập nhật: Chủ Nhật, 14 Tháng 6, 2026 &bull; 16:00</div>
+</div>
+
+<div class="grid">
+
+<!-- US MARKETS -->
+<div class="card">
+  <div class="card-title"><span class="icon">🇺🇸</span> Phố Wall</div>
+  <div class="item">
+    <span class="item-name">S&P 500</span>
+    <div class="item-values">
+      <span class="item-price">7,431.46</span>
+      <span class="item-change up">+47.72</span>
+      <span class="item-change up">+0.65%</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="item-name">DJIA</span>
+    <div class="item-values">
+      <span class="item-price">51,202.26</span>
+      <span class="item-change up">+335.48</span>
+      <span class="item-change up">+0.66%</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="item-name">Nasdaq</span>
+    <div class="item-values">
+      <span class="item-price">25,888.84</span>
+      <span class="item-change up">+179.41</span>
+      <span class="item-change up">+0.70%</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="item-name">VIX</span>
+    <div class="item-values">
+      <span class="item-price">17.68</span>
+      <span class="item-change down">-1.24</span>
+      <span class="item-change down">-6.55%</span>
+    </div>
+  </div>
+  <div style="margin-top:10px;font-size:0.7rem;color:#475569;text-align:right">Nguồn: Yahoo Finance • 14/06</div>
+</div>
+
+<!-- GLOBAL MARKETS -->
+<div class="card">
+  <div class="card-title"><span class="icon">🌍</span> Thị trường toàn cầu</div>
+  <div class="item">
+    <span class="item-name">STOXX 600</span>
+    <div class="item-values">
+      <span class="item-price">633.21</span>
+      <span class="item-change up">+11.48</span>
+      <span class="item-change up">+1.85%</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="item-name">DAX</span>
+    <div class="item-values">
+      <span class="item-price">24,635.30</span>
+      <span class="item-change down">-123.75</span>
+      <span class="item-change down">-0.50%</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="item-name">CAC 40</span>
+    <div class="item-values">
+      <span class="item-price">8,350.87</span>
+      <span class="item-change up">+151.58</span>
+      <span class="item-change up">+1.85%</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="item-name">FTSE 100</span>
+    <div class="item-values">
+      <span class="item-price">10,471.72</span>
+      <span class="item-change up">+103.62</span>
+      <span class="item-change up">+1.00%</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="item-name">Nikkei 225</span>
+    <div class="item-values">
+      <span class="item-price">66,020.04</span>
+      <span class="item-change up">+1,995.44</span>
+      <span class="item-change up">+3.12%</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="item-name">Hang Seng</span>
+    <div class="item-values">
+      <span class="item-price">24,718.10</span>
+      <span class="item-change down">-243.85</span>
+      <span class="item-change down">-0.98%</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="item-name">Shanghai</span>
+    <div class="item-values">
+      <span class="item-price">4,031.51</span>
+      <span class="item-change up">+72.17</span>
+      <span class="item-change up">+1.82%</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="item-name">Nifty 50</span>
+    <div class="item-values">
+      <span class="item-price">23,622.90</span>
+      <span class="item-change up">+499.90</span>
+      <span class="item-change up">+2.16%</span>
+    </div>
+  </div>
+  <div style="margin-top:10px;font-size:0.7rem;color:#475569;text-align:right">Nguồn: Yahoo Finance • 14/06</div>
+</div>
+
+<!-- FX -->
+<div class="card">
+  <div class="card-title"><span class="icon">💵</span> FX &amp; Chỉ số DXY</div>
+  <div class="item">
+    <span class="item-name">DXY</span>
+    <div class="item-values">
+      <span class="item-price">99.81</span>
+      <span class="item-change down">-0.10</span>
+      <span class="item-change down">-0.10%</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="item-name">EUR/USD</span>
+    <div class="item-values">
+      <span class="item-price">1.1573</span>
+      <span class="item-change up">+0.0050</span>
+      <span class="item-change up">+0.43%</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="item-name">USD/JPY</span>
+    <div class="item-values">
+      <span class="item-price">160.19</span>
+      <span class="item-change down">-0.14</span>
+      <span class="item-change down">-0.09%</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="item-name">GBP/USD</span>
+    <div class="item-values">
+      <span class="item-price">1.3408</span>
+      <span class="item-change up">+0.0072</span>
+      <span class="item-change up">+0.54%</span>
+    </div>
+  </div>
+  <div style="margin-top:10px;font-size:0.7rem;color:#475569;text-align:right">Nguồn: Yahoo Finance • 14/06</div>
+</div>
+
+<!-- VIETNAM -->
+<div class="card">
+  <div class="card-title"><span class="icon">🇻🇳</span> Thị trường Việt Nam</div>
+  <div class="item">
+    <span class="item-name">VN-Index</span>
+    <div class="item-values">
+      <span class="item-price">1,791.65</span>
+      <span class="item-change down">-6.96</span>
+      <span class="item-change down">-0.39%</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="item-name">USD/VND</span>
+    <div class="item-values">
+      <span class="item-price">26,250</span>
+      <span class="item-change down">-20</span>
+      <span class="item-change down">-0.08%</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="item-name">GTGD (HNX)</span>
+    <div class="item-values">
+      <span class="item-price" style="font-size:0.8rem">16,343.59 tỷ</span>
+      <span class="item-change neutral">—</span>
+    </div>
+  </div>
+  <div style="margin-top:10px;font-size:0.7rem;color:#475569;text-align:right">Nguồn: Cafef.vn, Yahoo Finance • 14/06</div>
+</div>
+
+<!-- COMMODITIES -->
+<div class="card">
+  <div class="card-title"><span class="icon">🛢️</span> Hàng hóa</div>
+  <div class="item">
+    <span class="item-name">WTI Crude</span>
+    <div class="item-values">
+      <span class="item-price">$84.88</span>
+      <span class="item-change down">-3.32</span>
+      <span class="item-change down">-3.76%</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="item-name">Vàng (Gold)</span>
+    <div class="item-values">
+      <span class="item-price">$4,238.80</span>
+      <span class="item-change down">-21.20</span>
+      <span class="item-change down">-0.50%</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="item-name">Bạc (Silver)</span>
+    <div class="item-values">
+      <span class="item-price">$67.97</span>
+      <span class="item-change up">+2.88</span>
+      <span class="item-change up">+4.42%</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="item-name">Đồng (Copper)</span>
+    <div class="item-values">
+      <span class="item-price">$6.445</span>
+      <span class="item-change up">+0.14</span>
+      <span class="item-change up">+2.27%</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="item-name">Natural Gas</span>
+    <div class="item-values">
+      <span class="item-price">$3.12</span>
+      <span class="item-change down">-0.02</span>
+      <span class="item-change down">-0.64%</span>
+    </div>
+  </div>
+  <div style="margin-top:10px;font-size:0.7rem;color:#475569;text-align:right">Nguồn: Yahoo Finance • 14/06</div>
+</div>
+
+<!-- CRYPTO -->
+<div class="card">
+  <div class="card-title"><span class="icon">₿</span> Crypto (Binance)</div>
+  <div class="item">
+    <span class="item-name">BTC</span>
+    <div class="item-values">
+      <span class="item-price">$64,456</span>
+      <span class="item-change up">+0.97%</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="item-name">ETH</span>
+    <div class="item-values">
+      <span class="item-price">$1,675.65</span>
+      <span class="item-change up">+0.01%</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="item-name">XRP</span>
+    <div class="item-values">
+      <span class="item-price">$1.15</span>
+      <span class="item-change up">+0.09%</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="item-name">SOL</span>
+    <div class="item-values">
+      <span class="item-price">$68.23</span>
+      <span class="item-change up">+1.23%</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="item-name">ADA</span>
+    <div class="item-values">
+      <span class="item-price">$0.17</span>
+      <span class="item-change down">-1.27%</span>
+    </div>
+  </div>
+  <div style="margin-top:10px;font-size:0.7rem;color:#475569;text-align:right">Nguồn: Binance API • 14/06 24h</div>
+</div>
+
+<!-- BONDS -->
+<div class="card">
+  <div class="card-title"><span class="icon">💰</span> Trái phiếu Kho bạc Mỹ</div>
+  <div class="item">
+    <span class="item-name">US 10Y</span>
+    <div class="item-values">
+      <span class="item-price">4.487%</span>
+      <span class="item-change down">-6.5 bp</span>
+      <span class="item-change down">-1.43%</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="item-name">US 2Y</span>
+    <div class="item-values">
+      <span class="item-price">3.800%</span>
+      <span class="item-change down">-4.0 bp</span>
+      <span class="item-change down">-1.04%</span>
+    </div>
+  </div>
+  <div class="item">
+    <span class="item-name">US 30Y</span>
+    <div class="item-values">
+      <span class="item-price">4.975%</span>
+      <span class="item-change down">-4.9 bp</span>
+      <span class="item-change down">-0.98%</span>
+    </div>
+  </div>
+  <div style="margin-top:10px;font-size:0.7rem;color:#475569;text-align:right">Nguồn: Yahoo Finance • 14/06</div>
+</div>
+
+<!-- NEWS -->
+<div class="card news-card">
+  <div class="card-title"><span class="icon">🔥</span> Tin nổi bật</div>
+  <div class="news-list">
+    <div class="news-item">
+      <div class="source">CNBC • 12/06/2026</div>
+      <a href="https://www.cnbc.com/2026/06/12/spacex-ipo-spcx-live-updates.html" target="_blank">SpaceX IPO ra mắt hoành tráng: SPCX đóng cửa $161, tăng 19% sau ngày giao dịch đầu tiên</a>
+    </div>
+    <div class="news-item">
+      <div class="source">Bloomberg • 13/06/2026</div>
+      <a href="https://www.bloomberg.com/news/features/2026-06-13/inside-the-spacex-ipo-why-elon-musk-raced-to-take-spacex-public" target="_blank">Vì sao Elon Musk chạy đua đưa SpaceX lên sàn trong đợt IPO lớn nhất lịch sử</a>
+    </div>
+    <div class="news-item">
+      <div class="source">CNBC • 13/06/2026</div>
+      <a href="https://www.cnbc.com/2026/06/13/trump-iran-deal-strait-of-hormuz.html" target="_blank">Trump tuyên bố sẽ ký thỏa thuận hòa bình vào Chủ Nhật, Iran vẫn thận trọng về thời điểm</a>
+    </div>
+    <div class="news-item">
+      <div class="source">Bloomberg • 13/06/2026</div>
+      <a href="https://www.bloomberg.com/news/videos/2026-06-13/us-iran-move-closer-to-deal-despite-hormuz-skirmishes-video" target="_blank">Mỹ và Iran tiến gần hơn đến thỏa thuận bất chấp giao tranh tại Hormuz</a>
+    </div>
+    <div class="news-item">
+      <div class="source">Bloomberg • 14/06/2026</div>
+      <a href="https://www.bloomberg.com/news/articles/2026-06-14/world-s-hottest-stock-market-turns-attention-to-msci-moment" target="_blank">Thị trường chứng khoán Hàn Quốc "nóng nhất thế giới" hướng đến cột mốc MSCI</a>
+    </div>
+    <div class="news-item">
+      <div class="source">Bloomberg • 13/06/2026</div>
+      <a href="https://www.bloomberg.com/news/articles/2026-06-13/there-s-a-bug-in-the-gold-trade-as-miners-move-like-meme-stocks" target="_blank">"Lỗi" trong giao dịch vàng: Cổ phiếu khai thác biến động như meme stocks</a>
+    </div>
+    <div class="news-item">
+      <div class="source">Bloomberg • 12/06/2026</div>
+      <a href="https://www.bloomberg.com/news/articles/2026-06-12/bitcoin-bottom-hunters-are-eyeing-up-ai-frenzy-and-spacex-ipo" target="_blank">Nhà đầu tư "bắt đáy" Bitcoin để mắt đến AI frenzy và SpaceX IPO</a>
+    </div>
+    <div class="news-item">
+      <div class="source">Bloomberg • 13/06/2026</div>
+      <a href="https://www.bloomberg.com/news/articles/2026-06-13/clo-etfs-boom-on-higher-rates-private-debt-woes-credit-weekly" target="_blank">CLO ETFs bùng nổ nhờ lãi suất cao, nợ tư nhân gặp khó</a>
+    </div>
+    <div class="news-item">
+      <div class="source">Cafef.vn • 14/06/2026</div>
+      <a href="https://cafef.vn/" target="_blank">Giá vàng giảm sâu rồi tăng mạnh trở lại trong tuần 8/6 - 14/6</a>
+    </div>
+  </div>
+  <div style="margin-top:10px;font-size:0.7rem;color:#475569;text-align:right">Nguồn: Bloomberg, CNBC, Cafef</div>
+</div>
+
+<!-- ANALYSIS -->
+<div class="card analysis-card">
+  <div class="card-title"><span class="icon">📈</span> Nhận định thị trường</div>
+  <div class="analysis-content">
+    <p><strong>🇺🇸 Phố Wall:</strong> Ba chỉ số chính đều tăng tích cực (S&P 500 +0.65%, DJIA +0.66%, Nasdaq +0.70%) nhờ tâm lý lạc quan từ thỏa thuận hòa bình Mỹ-Iran và màn ra mắt kỷ lục của SpaceX. VIX giảm mạnh (-6.55%) xuống 17.68, cho thấy thị trường đang hạ nhiệt lo ngại rủi ro.</p>
+    <br>
+    <p><strong>🌍 Châu Á - Châu Âu:</strong> Nikkei 225 bùng nổ +3.12% lên 66,020 điểm — mức cao kỷ lục mới. Nifty Ấn Độ +2.16%, Thượng Hải +1.82%. Trái lại, Hang Seng giảm -0.98% và DAX mất -0.50%. Châu Âu phân hóa: CAC +1.85% trong khi DAX giảm nhẹ.</p>
+    <br>
+    <p><strong>💵 FX & Hàng hóa:</strong> DXY tiếp tục suy yếu (-0.10%) xuống dưới 100 — đồng USD yếu hỗ trợ EUR (+0.43%) và GBP (+0.54%). Dầu WTI giảm mạnh -3.76% xuống $84.88 dù căng thẳng Hormuz vẫn tiếp diễn. Vàng giảm nhẹ -0.50% sau khi bật tăng mạnh giữa tuần. Bạc (+4.42%) và đồng (+2.27%) dẫn dắt hàng hóa.</p>
+    <br>
+    <p><strong>₿ Crypto:</strong> BTC phục hồi nhẹ +0.97% lên $64,456, SOL +1.23%. ETH gần như đi ngang, trong khi ADA giảm -1.27%. Thị trường crypto vẫn thận trọng giữa lúc AI và SpaceX IPO thu hút dòng vốn.</p>
+    <br>
+    <p><strong>💰 Trái phiếu:</strong> Lợi suất giảm trên toàn bộ đường cong — US 10Y xuống 4.487% (-6.5bp), US 2Y 3.800% (-4bp), US 30Y 4.975% (-4.9bp) — phản ánh kỳ vọng Fed sẽ nới lỏng nếu thỏa thuận Iran được ký kết và áp lực lạm phát dịu bớt.</p>
+    <br>
+    <p><strong>🇻🇳 Việt Nam:</strong> VN-Index giảm nhẹ -0.39% xuống 1,791.65 điểm. Thanh khoản đạt 16,343 tỷ đồng. USD/VND ổn định ở 26,250. Chuyên gia cảnh báo VN-Index có thể lùi về 1,750 nếu thanh khoản tiếp tục suy yếu.</p>
+    <br>
+    <p style="color:#64748b;font-style:italic;font-size:0.8rem;">Nhận định dựa trên số liệu thị trường thực tế từ Yahoo Finance, Binance API, và Bloomberg/CNBC. Đây không phải lời khuyên đầu tư.</p>
+  </div>
+</div>
+
+</div>
+
+<div class="footer">
+  <span class="brand">Nô Tì</span> • Financial News Digest<br>
+  Cập nhật hàng ngày lúc 08:00 • 12:00 • 16:00 • 20:00 (UTC+7)<br>
+  Dữ liệu từ Yahoo Finance, Binance API, Bloomberg, CNBC, Cafef<br>
+  <span style="color:#334155">© 2026 — Báo cáo tự động • Chủ nhật, 14/06/2026</span>
+</div>
+
+</div>
+</body>
+</html>
