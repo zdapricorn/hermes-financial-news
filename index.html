@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Báo Cáo Tài Chính Toàn Cầu • 02/07/2026</title>
+<!-- kai-v3-20260702 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #0a0a0f;
+  --card: rgba(255,255,255,0.03);
+  --card-border: rgba(255,255,255,0.06);
+  --card-hover: rgba(255,255,255,0.06);
+  --text: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --up: #4ade80;
+  --down: #fb7185;
+  --up-bg: rgba(74,222,128,0.08);
+  --down-bg: rgba(251,113,133,0.08);
+  --accent: #93c5fd;
+  --vn-gold: #fbbf24;
+  --vn-gold-dim: rgba(251,191,36,0.08);
+  --section-title: #64748b;
+}
+body {
+  font-family: 'Commissioner', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  padding: 20px;
+  min-height: 100vh;
+  line-height: 1.5;
+}
+.container { max-width: 1200px; margin: 0 auto; }
+
+/* Header */
+.header {
+  text-align: center;
+  padding: 30px 0 20px;
+  border-bottom: 1px solid var(--card-border);
+  margin-bottom: 30px;
+}
+.header h1 {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #e2e8f0 0%, #93c5fd 50%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.header .subtitle {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: 8px;
+  letter-spacing: 0.05em;
+}
+.header .date-badge {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 4px 16px;
+  border-radius: 20px;
+  background: rgba(147,197,253,0.1);
+  border: 1px solid rgba(147,197,253,0.2);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+/* Section */
+.section {
+  margin-bottom: 30px;
+}
+.section-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--section-title);
+  margin-bottom: 14px;
+  padding-left: 4px;
+}
+.section-title .emoji { margin-right: 8px; }
+
+/* Grid */
+.grid-4 { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+
+/* Card */
+.card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 14px 14px 12px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: cardIn 0.5s ease-out both;
+}
+.card:hover {
+  background: var(--card-hover);
+  border-color: rgba(255,255,255,0.1);
+  transform: translateY(-2px);
+}
+.card .label {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+.card .price {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+.card .change {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 500;
+  margin-top: 4px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  display: inline-block;
+}
+.card .change.up { color: var(--up); background: var(--up-bg); }
+.card .change.down { color: var(--down); background: var(--down-bg); }
+.card .change.neutral { color: var(--text-secondary); background: rgba(148,163,184,0.08); }
+.card .market-cap { font-size: 0.65rem; color: var(--text-secondary); margin-top: 4px; }
+
+/* Vietnam card special */
+.card.vn {
+  border-color: rgba(251,191,36,0.15);
+  background: rgba(251,191,36,0.03);
+}
+.card.vn:hover { border-color: rgba(251,191,36,0.3); }
+.card.vn .label i { color: var(--vn-gold); }
+
+/* News card */
+.news-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+  animation: cardIn 0.5s ease-out both;
+}
+.news-card:hover {
+  background: var(--card-hover);
+  border-color: rgba(255,255,255,0.1);
+  transform: translateX(3px);
+}
+.news-card .news-source {
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+.news-card .news-title {
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--text);
+}
+.news-card a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.news-card a:hover { text-decoration: underline; }
+
+/* Market analysis card */
+.analysis-card {
+  background: linear-gradient(135deg, rgba(147,197,253,0.04) 0%, rgba(167,139,250,0.04) 100%);
+  border: 1px solid rgba(147,197,253,0.1);
+  border-radius: 14px;
+  padding: 18px 20px;
+}
+.analysis-card p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+.analysis-card strong { color: var(--text); }
+
+/* Pulse for VN */
+.pulse-vn { animation: pulseGold 2s ease-in-out infinite; }
+@keyframes pulseGold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(251,191,36,0.1); }
+  50% { box-shadow: 0 0 0 6px rgba(251,191,36,0); }
+}
+
+/* Animations */
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.card:nth-child(1) { animation-delay: 0.02s; }
+.card:nth-child(2) { animation-delay: 0.06s; }
+.card:nth-child(3) { animation-delay: 0.10s; }
+.card:nth-child(4) { animation-delay: 0.14s; }
+.card:nth-child(5) { animation-delay: 0.18s; }
+.card:nth-child(6) { animation-delay: 0.22s; }
+.card:nth-child(7) { animation-delay: 0.26s; }
+.card:nth-child(8) { animation-delay: 0.30s; }
+.card:nth-child(9) { animation-delay: 0.34s; }
+.card:nth-child(10) { animation-delay: 0.38s; }
+.card:nth-child(11) { animation-delay: 0.42s; }
+.card:nth-child(12) { animation-delay: 0.46s; }
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 25px 0 10px;
+  border-top: 1px solid var(--card-border);
+  margin-top: 20px;
+}
+.footer p {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+}
+.footer .footer-brand {
+  color: var(--section-title);
+  font-size: 0.68rem;
+  margin-top: 4px;
+}
+.footer .update-times {
+  margin-top: 6px;
+  font-size: 0.7rem;
+  color: #475569;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  body { padding: 12px; }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .grid-2 { grid-template-columns: 1fr; gap: 8px; }
+  .card { padding: 12px; }
+  .card .price { font-size: 1rem; }
+  .header h1 { font-size: 1.3rem; }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 3px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+  <h1>📊 Báo Cáo Tài Chính Toàn Cầu</h1>
+  <div class="subtitle">Global Financial Markets Snapshot</div>
+  <div class="date-badge">📅 Thứ Năm, 02 Tháng 7, 2026</div>
+</div>
+
+<!-- US MARKETS -->
+<div class="section">
+  <div class="section-title"><span class="emoji">🇺🇸</span>Phố Wall</div>
+  <div class="grid-4">
+    <div class="card">
+      <div class="label">S&P 500</div>
+      <div class="price">7,483.23</div>
+      <div class="change down">-16.13 (−0.22%)</div>
+    </div>
+    <div class="card">
+      <div class="label">DJIA</div>
+      <div class="price">52,305.24</div>
+      <div class="change down">−13.96 (−0.03%)</div>
+    </div>
+    <div class="card">
+      <div class="label">Nasdaq</div>
+      <div class="price">26,040.03</div>
+      <div class="change down">−173.69 (−0.66%)</div>
+    </div>
+    <div class="card">
+      <div class="label">VIX</div>
+      <div class="price">16.00</div>
+      <div class="change down">−0.59 (−3.56%)</div>
+    </div>
+  </div>
+</div>
+
+<!-- GLOBAL MARKETS -->
+<div class="section">
+  <div class="section-title"><span class="emoji">🌍</span>Thị Trường Toàn Cầu</div>
+  <div class="grid-4">
+    <div class="card">
+      <div class="label">STOXX 600</div>
+      <div class="price">646.78</div>
+      <div class="change up">+7.47 (+1.17%)</div>
+    </div>
+    <div class="card">
+      <div class="label">DAX</div>
+      <div class="price">25,458.73</div>
+      <div class="change up">+418.45 (+1.67%)</div>
+    </div>
+    <div class="card">
+      <div class="label">CAC 40</div>
+      <div class="price">8,449.48</div>
+      <div class="change up">+112.19 (+1.35%)</div>
+    </div>
+    <div class="card">
+      <div class="label">FTSE 100</div>
+      <div class="price">10,572.98</div>
+      <div class="change up">+94.68 (+0.90%)</div>
+    </div>
+    <div class="card">
+      <div class="label">Nikkei 225</div>
+      <div class="price">68,733.15</div>
+      <div class="change down">−1,741.81 (−2.47%)</div>
+    </div>
+    <div class="card">
+      <div class="label">Hang Seng</div>
+      <div class="price">23,055.03</div>
+      <div class="change up">+174.01 (+0.76%)</div>
+    </div>
+    <div class="card">
+      <div class="label">Shanghai</div>
+      <div class="price">4,028.90</div>
+      <div class="change down">−83.54 (−2.03%)</div>
+    </div>
+    <div class="card">
+      <div class="label">Nifty 50</div>
+      <div class="price">24,175.70</div>
+      <div class="change up">+169.85 (+0.71%)</div>
+    </div>
+  </div>
+</div>
+
+<!-- FX & INDICES -->
+<div class="section">
+  <div class="section-title"><span class="emoji">💵</span>FX &amp; Chỉ Số</div>
+  <div class="grid-4">
+    <div class="card">
+      <div class="label">DXY</div>
+      <div class="price">100.67</div>
+      <div class="change down">−0.72 (−0.71%)</div>
+    </div>
+    <div class="card">
+      <div class="label">EUR/USD</div>
+      <div class="price">1.1455</div>
+      <div class="change up">+0.37%</div>
+    </div>
+    <div class="card">
+      <div class="label">USD/JPY</div>
+      <div class="price">161.01</div>
+      <div class="change down">−1.62 (−1.00%)</div>
+    </div>
+    <div class="card">
+      <div class="label">GBP/USD</div>
+      <div class="price">1.3367</div>
+      <div class="change up">+0.88%</div>
+    </div>
+  </div>
+</div>
+
+<!-- VIETNAM -->
+<div class="section">
+  <div class="section-title"><span class="emoji">🇻🇳</span>Thị Trường Việt Nam</div>
+  <div class="grid-3">
+    <div class="card vn pulse-vn">
+      <div class="label"><i>VN-Index</i></div>
+      <div class="price">1,867.21</div>
+      <div class="change up">+7.20 (+0.39%)</div>
+    </div>
+    <div class="card vn">
+      <div class="label"><i>USD/VND</i></div>
+      <div class="price">26,299</div>
+      <div class="change up">+44 (+0.17%)</div>
+    </div>
+  </div>
+</div>
+
+<!-- COMMODITIES -->
+<div class="section">
+  <div class="section-title"><span class="emoji">🛢️</span>Hàng Hóa</div>
+  <div class="grid-4">
+    <div class="card">
+      <div class="label">WTI Crude</div>
+      <div class="price">$67.48</div>
+      <div class="change down">−$1.10 (−1.60%)</div>
+    </div>
+    <div class="card">
+      <div class="label">Vàng</div>
+      <div class="price">$4,140.40</div>
+      <div class="change up">+$72.10 (+1.77%)</div>
+    </div>
+    <div class="card">
+      <div class="label">Bạc</div>
+      <div class="price">$61.79</div>
+      <div class="change up">+$1.70 (+2.83%)</div>
+    </div>
+    <div class="card">
+      <div class="label">Đồng</div>
+      <div class="price">$6.19</div>
+      <div class="change up">+$0.06 (+1.05%)</div>
+    </div>
+    <div class="card">
+      <div class="label">Natural Gas</div>
+      <div class="price">$3.17</div>
+      <div class="change down">−$0.05 (−1.49%)</div>
+    </div>
+  </div>
+</div>
+
+<!-- CRYPTO -->
+<div class="section">
+  <div class="section-title"><span class="emoji">₿</span>Cryptocurrency</div>
+  <div class="grid-4">
+    <div class="card">
+      <div class="label">BTC/USDT</div>
+      <div class="price">$61,540</div>
+      <div class="change up">+4.98%</div>
+    </div>
+    <div class="card">
+      <div class="label">ETH/USDT</div>
+      <div class="price">$1,662.46</div>
+      <div class="change up">+5.76%</div>
+    </div>
+    <div class="card">
+      <div class="label">XRP/USDT</div>
+      <div class="price">$1.0925</div>
+      <div class="change up">+5.21%</div>
+    </div>
+    <div class="card">
+      <div class="label">SOL/USDT</div>
+      <div class="price">$81.32</div>
+      <div class="change up">+8.92%</div>
+    </div>
+    <div class="card">
+      <div class="label">ADA/USDT</div>
+      <div class="price">$0.1601</div>
+      <div class="change up">+5.33%</div>
+    </div>
+  </div>
+</div>
+
+<!-- BONDS -->
+<div class="section">
+  <div class="section-title"><span class="emoji">💰</span>Trái Phiếu</div>
+  <div class="grid-4">
+    <div class="card">
+      <div class="label">US 10Y Yield</div>
+      <div class="price">4.459%</div>
+      <div class="change down">−1.6 bp</div>
+    </div>
+    <div class="card">
+      <div class="label">US 2Y Yield</div>
+      <div class="price">3.870%</div>
+      <div class="change down">−2.6 bp</div>
+    </div>
+    <div class="card">
+      <div class="label">US 30Y Yield</div>
+      <div class="price">4.977%</div>
+      <div class="change up">+1.1 bp</div>
+    </div>
+  </div>
+</div>
+
+<!-- NEWS -->
+<div class="section">
+  <div class="section-title"><span class="emoji">🔥</span>Tin Nổi Bật</div>
+  <div class="grid-2">
+    <div class="news-card">
+      <div class="news-source">Yahoo Finance • 20 phút trước</div>
+      <div class="news-title"><a href="https://finance.yahoo.com/news/stock-market-today-dow-sp-500-nasdaq-futures-rise-june-jobs-report-falls-short/" target="_blank">Stock market today: Dow, S&P 500, Nasdaq futures rise as June jobs report falls short</a></div>
+    </div>
+    <div class="news-card">
+      <div class="news-source">CNBC • 2 giờ trước</div>
+      <div class="news-title"><a href="https://www.cnbc.com/2026/07/02/stock-market-today-live-updates.html" target="_blank">Stock futures choppy after weak start to July trading; jobs report ahead: Live updates</a></div>
+    </div>
+    <div class="news-card">
+      <div class="news-source">Financial Times • 8 giờ trước</div>
+      <div class="news-title"><a href="https://www.ft.com/content/bank-of-england-hedge-fund-leverage" target="_blank">Bank of England to push ahead with plan to limit hedge fund leverage</a></div>
+    </div>
+    <div class="news-card">
+      <div class="news-source">Reuters • 2 giờ trước</div>
+      <div class="news-title"><a href="https://www.reuters.com/markets/global-markets-wrapup-2026-07-02/" target="_blank">Morning Bid: Churning chips — AI chip sell-off deepens on spending concerns</a></div>
+    </div>
+    <div class="news-card">
+      <div class="news-source">Barron's • Hôm qua</div>
+      <div class="news-title"><a href="https://www.barrons.com/articles/stock-markets-crucial-period-investors-defense-inflation-risks" target="_blank">Stock Markets Enter a Crucial Period as Investors Play Defense to Inflation Risks</a></div>
+    </div>
+    <div class="news-card">
+      <div class="news-source">Investor's Business Daily • 16 giờ trước</div>
+      <div class="news-title"><a href="https://www.investors.com/market-trend/stock-market-today/stock-market-today-warsh-meta-ai/" target="_blank">Stocks Fall Amid Warsh Comments; Meta Jumps On AI Plans (Live)</a></div>
+    </div>
+    <div class="news-card">
+      <div class="news-source">The Washington Post • 16 giờ trước</div>
+      <div class="news-title"><a href="https://www.washingtonpost.com/business/2026/07/01/trump-stock-market-profit/" target="_blank">Trump says he's profiting 'because the stock market's going up'</a></div>
+    </div>
+    <div class="news-card">
+      <div class="news-source">Bloomberg • 13 giờ trước</div>
+      <div class="news-title"><a href="https://www.bloomberg.com/news/articles/2026-07-02/nigeria-market-rally-political-problem" target="_blank">Watch Nigeria's Market Rally Becomes A Political Problem</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ANALYSIS -->
+<div class="section">
+  <div class="section-title"><span class="emoji">📈</span>Nhận Định Thị Trường</div>
+  <div class="analysis-card">
+    <p>
+      <strong>🇺🇸 Phố Wall:</strong> Ba chỉ số chính đồng loạt giảm nhẹ, với Nasdaq giảm mạnh nhất (−0.66%) khi nhóm cổ phiếu AI tiếp tục chịu áp lực bán sau lo ngại về chi tiêu vốn. VIX giảm về 16 điểm (−3.56%) cho thấy tâm lý nhà đầu tư bớt căng thẳng. Thị trường đang chờ đợi báo cáo việc làm tháng 6.
+    </p>
+    <p style="margin-top:10px;">
+      <strong>🌍 Châu Âu:</strong> Đồng loạt tăng mạnh — DAX +1.67%, CAC 40 +1.35%, FTSE 100 +0.90% — nhờ tín hiệu từ BoE về việc giới hạn đòn bẩy hedge fund và kỳ vọng ECB tiếp tục nới lỏng.
+    </p>
+    <p style="margin-top:10px;">
+      <strong>🌏 Châu Á:</strong> Phân hóa rõ rệt. Nikkei giảm sâu −2.47% khi làn sóng bán tháo cổ phiếu AI lan sang Nhật Bản. Shanghai cũng giảm −2.03%. Trong khi đó, Hang Seng (+0.76%) và Nifty (+0.71%) phục hồi tích cực.
+    </p>
+    <p style="margin-top:10px;">
+      <strong>💵 FX:</strong> DXY giảm −0.71% xuống 100.67, EUR/USD tăng +0.37% lên 1.1455. USD/JPY giảm −1.00% xuống 161.01 — đồng Yên phục hồi nhẹ.
+    </p>
+    <p style="margin-top:10px;">
+      <strong>🛢️ Hàng hóa:</strong> Vàng tăng mạnh +1.77% lên $4,140.40 — mức cao lịch sử mới — khi nhà đầu tư tìm nơi trú ẩn an toàn. Bạc cũng tăng +2.83%. Dầu WTI giảm −1.60% xuống $67.48 do lo ngại nhu cầu suy yếu.
+    </p>
+    <p style="margin-top:10px;">
+      <strong>₿ Crypto:</strong> Bùng nổ — SOL dẫn đầu với +8.92%, theo sau là ETH +5.76%, XRP +5.21%, ADA +5.33%, BTC +4.98%. Dòng tiền đổ mạnh vào crypto trong bối cảnh bất ổn kinh tế vĩ mô.
+    </p>
+    <p style="margin-top:10px;">
+      <strong>🇻🇳 Việt Nam:</strong> VN-Index tăng nhẹ +7.20 điểm (+0.39%) lên 1,867.21. Tỷ giá USD/VND ở mức 26,299 (+0.17%).
+    </p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>Nô Tì • Financial News Digest</p>
+  <p class="update-times">⏰ Cập nhật: 08:00 • 12:00 • 16:00 • 20:00 (UTC+7)</p>
+  <p class="footer-brand">📊 Dữ liệu từ Yahoo Finance &amp; Binance API</p>
+</div>
+
+</div>
+</body>
+</html>
