@@ -1,0 +1,438 @@
+<!-- kai-financial-20260724 -->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial News Digest • 24/07/2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:'Commissioner',sans-serif;background:#0a0a0f;color:#e2e8f0;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 20% 50%,rgba(59,130,246,0.04) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(251,191,36,0.03) 0%,transparent 50%),radial-gradient(ellipse at 50% 80%,rgba(74,222,128,0.02) 0%,transparent 50%);z-index:0;pointer-events:none}
+.container{max-width:1280px;margin:0 auto;padding:16px;position:relative;z-index:1}
+
+/* Header */
+.header{text-align:center;padding:28px 0 20px}
+.header h1{font-size:1.75rem;font-weight:800;background:linear-gradient(135deg,#fbbf24,#f59e0b,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-0.5px}
+.header .date{font-size:0.85rem;color:#94a3b8;margin-top:6px;font-weight:400}
+.header .date span{color:#fbbf24;font-weight:600}
+.header .badge{display:inline-block;background:rgba(251,191,36,0.12);color:#fbbf24;padding:3px 10px;border-radius:20px;font-size:0.7rem;font-weight:600;margin-top:8px;letter-spacing:0.5px;border:1px solid rgba(251,191,36,0.2)}
+
+/* Grid */
+.grid{display:grid;gap:12px;margin-top:16px}
+@media(min-width:640px){.grid{grid-template-columns:repeat(2,1fr);gap:14px}.container{padding:20px}}
+@media(min-width:1024px){.grid{grid-template-columns:repeat(3,1fr);gap:16px}.container{padding:24px;max-width:1320px}}
+.full{grid-column:1/-1}
+
+/* Card */
+.card{background:rgba(18,18,30,0.8);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:18px;position:relative;overflow:hidden;animation:fadeUp 0.5s ease-out both}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.08),transparent)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.card:nth-child(1){animation-delay:0.05s}
+.card:nth-child(2){animation-delay:0.1s}
+.card:nth-child(3){animation-delay:0.15s}
+.card:nth-child(4){animation-delay:0.2s}
+.card:nth-child(5){animation-delay:0.25s}
+.card:nth-child(6){animation-delay:0.3s}
+.card:nth-child(7){animation-delay:0.35s}
+.card:nth-child(8){animation-delay:0.4s}
+
+.card-title{font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:1.2px;color:#64748b;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.card-title .icon{font-size:1rem}
+
+.price-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);min-height:44px}
+.price-row:last-child{border-bottom:none}
+.price-name{font-size:0.8rem;font-weight:500;color:#cbd5e1;flex:1}
+.price-value{font-size:0.82rem;font-weight:600;color:#f1f5f9;text-align:right;white-space:nowrap;min-width:65px}
+.price-change{font-size:0.75rem;font-weight:600;text-align:right;min-width:68px;white-space:nowrap}
+.up{color:#4ade80}
+.down{color:#fb7185}
+.neutral{color:#94a3b8}
+
+/* Vietnam section */
+.vn-accent{border-color:rgba(251,191,36,0.15)}
+.vn-accent::before{background:linear-gradient(90deg,transparent,rgba(251,191,36,0.12),transparent)}
+.vn-label{color:#fbbf24!important}
+
+/* Featured indicator */
+.featured-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+@media(min-width:480px){.featured-grid{grid-template-columns:repeat(4,1fr)}}
+.featured-item{text-align:center;padding:10px 6px;background:rgba(255,255,255,0.03);border-radius:12px;min-height:80px}
+.featured-item .label{font-size:0.65rem;color:#64748b;font-weight:500;text-transform:uppercase;letter-spacing:0.5px}
+.featured-item .value{font-size:1.1rem;font-weight:700;color:#f1f5f9;margin-top:4px}
+.featured-item .chg{font-size:0.75rem;font-weight:600;margin-top:2px}
+
+/* News */
+.news-item{padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.05);min-height:44px;display:flex;flex-direction:column;gap:2px}
+.news-item:last-child{border-bottom:none}
+.news-title{font-size:0.8rem;font-weight:500;color:#e2e8f0;line-height:1.4}
+.news-title a{color:#93c5fd;text-decoration:none;transition:color 0.2s}
+.news-title a:hover{color:#60a5fa;text-decoration:underline}
+.news-meta{font-size:0.65rem;color:#64748b;font-weight:400}
+
+/* Sentiment */
+.sentiment-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.sentiment-item{background:rgba(255,255,255,0.03);border-radius:12px;padding:14px}
+.sentiment-item .label{font-size:0.7rem;color:#64748b;font-weight:500}
+.sentiment-item .value{font-size:1rem;font-weight:700;margin-top:4px}
+
+/* Footer */
+.footer{text-align:center;padding:24px 0 16px;font-size:0.75rem;color:#475569}
+.footer .brand{font-size:0.85rem;font-weight:600;color:#64748b;margin-bottom:4px}
+.footer .times{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:4px}
+.footer .times span{background:rgba(255,255,255,0.04);padding:2px 10px;border-radius:12px;font-size:0.7rem;color:#94a3b8}
+
+/* Tooltip hint */
+.bp{font-size:0.6rem;color:#64748b;font-weight:400}
+.na{color:#64748b;font-style:italic;font-weight:400}
+
+/* Dividers */
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(251,191,36,0.15),transparent);margin:4px 0 10px}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header class="header">
+  <h1>📊 Financial News Digest</h1>
+  <div class="date"><span>Thứ Sáu</span> • 24 Tháng 7, 2026</div>
+  <div class="badge">⚡ Dữ liệu từ Yahoo Finance & Binance API</div>
+</header>
+
+<div class="grid">
+
+<!-- Section 1: Wall Street -->
+<div class="card">
+  <div class="card-title"><span class="icon">🇺🇸</span> Phố Wall</div>
+  <div class="price-row">
+    <span class="price-name">S&amp;P 500</span>
+    <span class="price-value">7,408.30</span>
+    <span class="price-change down">−90.66 <span style="font-weight:400;font-size:0.7rem">(−1.21%)</span></span>
+  </div>
+  <div class="price-row">
+    <span class="price-name">DJIA</span>
+    <span class="price-value">51,711.65</span>
+    <span class="price-change down">−506.93 <span style="font-weight:400;font-size:0.7rem">(−0.97%)</span></span>
+  </div>
+  <div class="price-row">
+    <span class="price-name">Nasdaq</span>
+    <span class="price-value">25,137.69</span>
+    <span class="price-change down">−553.21 <span style="font-weight:400;font-size:0.7rem">(−2.15%)</span></span>
+  </div>
+  <div class="price-row">
+    <span class="price-name">VIX</span>
+    <span class="price-value">18.80</span>
+    <span class="price-change up">+0.10 <span style="font-weight:400;font-size:0.7rem">(+0.53%)</span></span>
+  </div>
+</div>
+
+<!-- Section 2: Europe -->
+<div class="card">
+  <div class="card-title"><span class="icon">🇪🇺</span> Châu Âu</div>
+  <div class="price-row">
+    <span class="price-name">STOXX 600</span>
+    <span class="price-value">642.15</span>
+    <span class="price-change up">+2.88 <span style="font-weight:400;font-size:0.7rem">(+0.45%)</span></span>
+  </div>
+  <div class="price-row">
+    <span class="price-name">DAX</span>
+    <span class="price-value">24,929.11</span>
+    <span class="price-change up">+165.99 <span style="font-weight:400;font-size:0.7rem">(+0.67%)</span></span>
+  </div>
+  <div class="price-row">
+    <span class="price-name">CAC 40</span>
+    <span class="price-value">8,325.99</span>
+    <span class="price-change up">+26.90 <span style="font-weight:400;font-size:0.7rem">(+0.32%)</span></span>
+  </div>
+  <div class="price-row">
+    <span class="price-name">FTSE 100</span>
+    <span class="price-value">10,676.48</span>
+    <span class="price-change up">+37.28 <span style="font-weight:400;font-size:0.7rem">(+0.35%)</span></span>
+  </div>
+</div>
+
+<!-- Section 3: Asia -->
+<div class="card">
+  <div class="card-title"><span class="icon">🌏</span> Châu Á - Thái Bình Dương</div>
+  <div class="price-row">
+    <span class="price-name">Nikkei 225</span>
+    <span class="price-value">64,611.15</span>
+    <span class="price-change down">−1,811.45 <span style="font-weight:400;font-size:0.7rem">(−2.73%)</span></span>
+  </div>
+  <div class="price-row">
+    <span class="price-name">Hang Seng</span>
+    <span class="price-value">24,963.23</span>
+    <span class="price-change down">−247.58 <span style="font-weight:400;font-size:0.7rem">(−0.98%)</span></span>
+  </div>
+  <div class="price-row">
+    <span class="price-name">Shanghai Comp.</span>
+    <span class="price-value">3,814.20</span>
+    <span class="price-change down">−62.58 <span style="font-weight:400;font-size:0.7rem">(−1.61%)</span></span>
+  </div>
+  <div class="price-row">
+    <span class="price-name">Nifty 50</span>
+    <span class="price-value">23,767.45</span>
+    <span class="price-change down">−102.15 <span style="font-weight:400;font-size:0.7rem">(−0.43%)</span></span>
+  </div>
+</div>
+
+<!-- Section 4: FX -->
+<div class="card">
+  <div class="card-title"><span class="icon">💵</span> Ngoại hối &amp; Chỉ số DXY</div>
+  <div class="price-row">
+    <span class="price-name">DXY</span>
+    <span class="price-value">101.49</span>
+    <span class="price-change neutral">+0.06 <span style="font-weight:400;font-size:0.7rem">(+0.06%)</span></span>
+  </div>
+  <div class="price-row">
+    <span class="price-name">EUR/USD</span>
+    <span class="price-value">1.1371</span>
+    <span class="price-change down">−0.0041 <span style="font-weight:400;font-size:0.7rem">(−0.36%)</span></span>
+  </div>
+  <div class="price-row">
+    <span class="price-name">USD/JPY</span>
+    <span class="price-value">163.87</span>
+    <span class="price-change up">+0.79 <span style="font-weight:400;font-size:0.7rem">(+0.48%)</span></span>
+  </div>
+  <div class="price-row">
+    <span class="price-name">GBP/USD</span>
+    <span class="price-value">1.3310</span>
+    <span class="price-change down">−0.0065 <span style="font-weight:400;font-size:0.7rem">(−0.49%)</span></span>
+  </div>
+</div>
+
+<!-- Section 5: Vietnam -->
+<div class="card vn-accent">
+  <div class="card-title"><span class="icon">🇻🇳</span> <span class="vn-label">Thị trường Việt Nam</span></div>
+  <div class="price-row">
+    <span class="price-name">VN-Index</span>
+    <span class="price-value na">N/A</span>
+    <span class="price-change neutral">—</span>
+  </div>
+  <div class="divider"></div>
+  <div class="price-row">
+    <span class="price-name">USD/VND</span>
+    <span class="price-value">26,314</span>
+    <span class="price-change up">+9 <span style="font-weight:400;font-size:0.7rem">(+0.03%)</span></span>
+  </div>
+  <div style="font-size:0.65rem;color:#64748b;margin-top:4px;padding:4px 0">* VN-Index: không có dữ liệu từ Yahoo Finance. USD/VND từ Yahoo Finance (VND=X).</div>
+</div>
+
+<!-- Section 6: Commodities -->
+<div class="card">
+  <div class="card-title"><span class="icon">🛢️</span> Hàng hóa</div>
+  <div class="price-row">
+    <span class="price-name">WTI Crude</span>
+    <span class="price-value">$89.43</span>
+    <span class="price-change down">−2.76 <span style="font-weight:400;font-size:0.7rem">(−2.99%)</span></span>
+  </div>
+  <div class="price-row">
+    <span class="price-name">Vàng (Gold)</span>
+    <span class="price-value">$4,057.00</span>
+    <span class="price-change up">+10.40 <span style="font-weight:400;font-size:0.7rem">(+0.26%)</span></span>
+  </div>
+  <div class="price-row">
+    <span class="price-name">Bạc (Silver)</span>
+    <span class="price-value">$58.68</span>
+    <span class="price-change up">+0.88 <span style="font-weight:400;font-size:0.7rem">(+1.52%)</span></span>
+  </div>
+  <div class="price-row">
+    <span class="price-name">Đồng (Copper)</span>
+    <span class="price-value">$6.34</span>
+    <span class="price-change up">+0.04 <span style="font-weight:400;font-size:0.7rem">(+0.59%)</span></span>
+  </div>
+  <div class="price-row">
+    <span class="price-name">Natural Gas</span>
+    <span class="price-value">$2.97</span>
+    <span class="price-change up">+0.05 <span style="font-weight:400;font-size:0.7rem">(+1.82%)</span></span>
+  </div>
+</div>
+
+<!-- Section 7: Crypto -->
+<div class="card">
+  <div class="card-title"><span class="icon">₿</span> Crypto</div>
+  <div class="price-row">
+    <span class="price-name">Bitcoin</span>
+    <span class="price-value">$64,568</span>
+    <span class="price-change down">−0.77%</span>
+  </div>
+  <div class="price-row">
+    <span class="price-name">Ethereum</span>
+    <span class="price-value">$1,867.54</span>
+    <span class="price-change down">−1.68%</span>
+  </div>
+  <div class="price-row">
+    <span class="price-name">XRP</span>
+    <span class="price-value">$1.0958</span>
+    <span class="price-change down">−2.07%</span>
+  </div>
+  <div class="price-row">
+    <span class="price-name">Solana</span>
+    <span class="price-value">$74.59</span>
+    <span class="price-change down">−2.88%</span>
+  </div>
+  <div class="price-row">
+    <span class="price-name">Cardano</span>
+    <span class="price-value">$0.1650</span>
+    <span class="price-change down">−4.40%</span>
+  </div>
+</div>
+
+<!-- Section 8: Bonds -->
+<div class="card">
+  <div class="card-title"><span class="icon">💰</span> Trái phiếu Chính phủ Mỹ</div>
+  <div class="price-row">
+    <span class="price-name">US 10Y</span>
+    <span class="price-value">4.679%</span>
+    <span class="price-change down">−2.0 bp <span class="bp">(−0.51%)</span></span>
+  </div>
+  <div class="price-row">
+    <span class="price-name">US 2Y</span>
+    <span class="price-value">3.961%</span>
+    <span class="price-change down">−7.1 bp <span class="bp">(−1.79%)</span></span>
+  </div>
+  <div class="price-row">
+    <span class="price-name">US 30Y</span>
+    <span class="price-value">5.157%</span>
+    <span class="price-change down">−1.4 bp <span class="bp">(−0.27%)</span></span>
+  </div>
+  <div class="price-row" style="border-bottom:none;padding-top:8px">
+    <span class="price-name" style="color:#94a3b8;font-size:0.7rem">Chênh lệch 2Y−10Y</span>
+    <span class="price-value" style="color:#cbd5e1;font-size:0.8rem">+71.8 bp</span>
+    <span class="price-change neutral" style="font-size:0.65rem;color:#64748b">(đường cong dốc)</span>
+  </div>
+</div>
+
+<!-- Section 9: Featured Overview -->
+<div class="card">
+  <div class="card-title"><span class="icon">📊</span> Tổng quan thị trường</div>
+  <div class="featured-grid">
+    <div class="featured-item">
+      <div class="label">S&amp;P 500</div>
+      <div class="value">7,408</div>
+      <div class="chg down">−1.21%</div>
+    </div>
+    <div class="featured-item">
+      <div class="label">Nasdaq</div>
+      <div class="value">25,138</div>
+      <div class="chg down">−2.15%</div>
+    </div>
+    <div class="featured-item">
+      <div class="label">US 10Y</div>
+      <div class="value" style="color:#fbbf24">4.679%</div>
+      <div class="chg down">−2 bp</div>
+    </div>
+    <div class="featured-item">
+      <div class="label">DXY</div>
+      <div class="value">101.49</div>
+      <div class="chg neutral">+0.06%</div>
+    </div>
+    <div class="featured-item">
+      <div class="label">WTI</div>
+      <div class="value">$89.43</div>
+      <div class="chg down">−2.99%</div>
+    </div>
+    <div class="featured-item">
+      <div class="label">Vàng</div>
+      <div class="value">$4,057</div>
+      <div class="chg up">+0.26%</div>
+    </div>
+    <div class="featured-item">
+      <div class="label">BTC</div>
+      <div class="value">$64,568</div>
+      <div class="chg down">−0.77%</div>
+    </div>
+    <div class="featured-item">
+      <div class="label">VIX</div>
+      <div class="value">18.80</div>
+      <div class="chg up">+0.53%</div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 10: News -->
+<div class="card full">
+  <div class="card-title"><span class="icon">🔥</span> Tin nổi bật</div>
+  <div class="news-item">
+    <div class="news-title"><a href="https://news.google.com/rss/articles/CBMihwFBVV95cUxQdFhZYlFqX1F2Y2F3U0ZEeWV1aXFLRlpxa2ViQ1lNRVE5eXJjeE5lZjh2ZERxNEowVUZDdUdoOWN4eUZxWlVMM2hCQ0xpVUV5OXhwazhnVFFxWjlKaGdJOUtBSXM3OHQ1QVpRa2FYWUVnNHY4aGhuc01nOWVfdmRlMVV6OUF2SFU?oc=5" target="_blank">Stock Market Today: Dow Futures Edge Up, What to Watch — Live Updates</a></div>
+    <div class="news-meta">WSJ • 24/07/2026</div>
+  </div>
+  <div class="news-item">
+    <div class="news-title"><a href="https://news.google.com/rss/articles/CBMikAFBVV95cUxQX2xyYVpYMEsxdHlpNGM5bzRaX2M0dmpQWnpqYnJtaFNHQ29EMW1GVTNfMG5iSjZzSFBBdEdKTFlnTjRMOW13QnhqQXRuM2ZQMEdMbTlxTW53SFJIWmpyam9nYmU2dXg2SFJXWHk1Q05NemM3MkJMTzBsR3VreklFaldXM09HdllYUTVJQmZ6OVk?oc=5" target="_blank">Stock Market Today: Futures Point Mostly Higher to End Down Week as Oil Prices Pressure</a></div>
+    <div class="news-meta">Investopedia • 24/07/2026</div>
+  </div>
+  <div class="news-item">
+    <div class="news-title"><a href="https://news.google.com/rss/articles/CBMi0gFBVV95cUxQRFd5VlpCdi1ZU0tyQzRNN1dQakZKYmZTaDF2RFhXX1FXVGlUVW9kWHJOTnh4Rmh1YTFjWDdmOGQ5N1BLLVVLZWJRQUJRNnhwTVNySXdBZmpiNEo0b2dGMTRLNE9JM0R4Zy16Y3Mwamx6QjVTMjVsbHBHY2x5dlBCamhJVWkzT3NENHpHMHhhcTUxcGltUkRFbDNsRVR6OGhWTEY0bzV4WU9rcFdEXzZLaXRHWUhCbVQzSVFfbkhMZGZpMlFaTkRvR1ZFSkhicVhqZXfSAdcBQVVfeXFMT1dVZk5FdjZ0RE1FRkJ6R1ZwVlB5cDdrQ0x4V0hWMUhHbThmbTJSbk81ZVY3Q3dyV0t5OTNhVVRTdnpTX0ZfOHFUSEd5YnZkUWZoSmVmNmgwbWhVQVp2QjR1amhSMkVYV2ZOQ1Nad3dYVDRBVjhoOHVCVndWY0lwR2xvYzhyU2RHLW9JSTc3S0FTUHF3VTFvRlpNSXVtRTlhQkxsbHJWdHhlRjdfUmZ1UEtOTDVqcTRlc1VwcVpIeEI4Q0xiTXVUT2lkLVQ4aWJuTUdkSmUzNGs?oc=5" target="_blank">Gold, Silver Regain Momentum; Crude Oil Falls Below $100 a Barrel</a></div>
+    <div class="news-meta">Business Standard • 24/07/2026</div>
+  </div>
+  <div class="news-item">
+    <div class="news-title"><a href="https://news.google.com/rss/articles/CBMieEFVX3lxTE8tcVhJU0V0QWZhMEN3R1FBVnJycVh3Q2Y1UlBpamRuZUNCdE5RbnE0R1ZfQkRuVHgyeElMTnBvTXdxWjBVazhYdVpKYU82MnFINUc0QzEzM0l4aTRKMXMtaVNrMEhMQVdmTkdGVFU1NWxrR0EyN1J5Qg?oc=5" target="_blank">Will the Federal Reserve Raise Interest Rates? Here Is What Experts Predict</a></div>
+    <div class="news-meta">CBS News • 24/07/2026</div>
+  </div>
+  <div class="news-item">
+    <div class="news-title"><a href="https://news.google.com/rss/articles/CBMid0FVX3lxTE5faUg1R2E2UzRLZjdYMk0wSDJ5UVNTd3FJOGp0RjU0clNleGxKeEhjMUxZV0IyTEpUVHRGZk9iSGIzakRVTU84ZzhGYkxUSExnYVBad2FEbmZQSW5EM1J4LUVrMnZGT1U5Zzhnd2NxYXE2R25yVHNj0gF8QVVfeXFMTWl2WWhNNEUwLTBIc0J0YXFiM2k3N1QtQ0Q2WmRDbEJmTzJIX1dSd2VzTnV3eVNPb1M0ejU2bVI3YUtCT2VGa0t0MVFFUzgwMTdDRndFYUI5QmNVcjNaTkxHNUtaR20wWmpyZkRSVFVBeGFmaUtteUZoVXRncg?oc=5" target="_blank">Stock Futures Inch Higher as Traders Look to Recover From Oil-Driven Sell-Off</a></div>
+    <div class="news-meta">CNBC • 24/07/2026</div>
+  </div>
+  <div class="news-item">
+    <div class="news-title"><a href="https://news.google.com/rss/articles/CBMilwFBVV95cUxPSnFKWm5QQXFGWWxjTjlRb3RDVXNrV2dBeENYZDF5LWRLR2p1Q2xkMGFocXVyUUYxaXh6UHR4VUYtTEJ0TzBDUTFFQ0xBcnF2a1lEdlpSZ2xwRlZBZUlvRWY4XzhTUDVBTHdyUG41RlFCY0hfVDZ4V1dtSkhnVnhKcUJvcEh2NzRPMG9jS0ZOQW1XT3VBMlJV?oc=5" target="_blank">Global Economy Picked Up Before Fresh Energy Hit</a></div>
+    <div class="news-meta">WSJ • 24/07/2026</div>
+  </div>
+  <div class="news-item">
+    <div class="news-title"><a href="https://cointelegraph.com/news/coinbase-lets-businesses-accept-usdc-payments-from-ai-agents?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound" target="_blank">Coinbase Lets Businesses Accept USDC Payments From AI Agents</a></div>
+    <div class="news-meta">CoinTelegraph • 24/07/2026</div>
+  </div>
+  <div class="news-item">
+    <div class="news-title"><a href="https://cointelegraph.com/markets/bitcoin-dips-below-65k-iran-war-sparks-100-oil-us-bond-spike?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound" target="_blank">Bitcoin Slides Below $65K as Iran Conflict Fuels $100 Oil and Bond-Yield Surge</a></div>
+    <div class="news-meta">CoinTelegraph • 24/07/2026</div>
+  </div>
+</div>
+
+<!-- Section 11: Analysis -->
+<div class="card full">
+  <div class="card-title"><span class="icon">📈</span> Nhận định thị trường</div>
+  <div class="sentiment-grid">
+    <div class="sentiment-item">
+      <div class="label">📉 Tổng quan</div>
+      <div class="value" style="color:#fb7185">Tiêu cực</div>
+      <div style="font-size:0.7rem;color:#94a3b8;margin-top:4px;line-height:1.4">Phố Wall đỏ lửa — Nasdaq giảm sâu nhất (−2.15%). Nikkei lao dốc −2.73% theo chân US sell-off. Châu Âu xanh nhẹ (+0.3–0.7%) trái chiều.</div>
+    </div>
+    <div class="sentiment-item">
+      <div class="label">🛢️ Dầu &amp; Lạm phát</div>
+      <div class="value" style="color:#fbbf24">Rủi ro cao</div>
+      <div style="font-size:0.7rem;color:#94a3b8;margin-top:4px;line-height:1.4">WTI giảm −2.99% về $89.43 nhưng tin đồn Iran căng thẳng giữ dầu trên $100. Stagflation lo ngại quay lại.</div>
+    </div>
+    <div class="sentiment-item">
+      <div class="label">🏦 Fed &amp; Lãi suất</div>
+      <div class="value" style="color:#4ade80">Trung tính</div>
+      <div style="font-size:0.7rem;color:#94a3b8;margin-top:4px;line-height:1.4">Lợi suất 10Y giảm −2bp về 4.679%. Thị trường kỳ vọng Fed giữ nguyên lãi suất. Chênh lệch 2Y−10Y +71.8bp.</div>
+    </div>
+    <div class="sentiment-item">
+      <div class="label">₿ Crypto</div>
+      <div class="value" style="color:#fb7185">Yếu</div>
+      <div style="font-size:0.7rem;color:#94a3b8;margin-top:4px;line-height:1.4">BTC dưới $65K, altcoin giảm mạnh (ADA −4.40%). Coinbase mở USDC cho AI agent, dài hạn tích cực.</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<footer class="footer">
+  <div class="brand">Nô Tì • Financial News Digest</div>
+  <div>Dữ liệu từ Yahoo Finance &amp; Binance API — tham khảo, không phải lời khuyên đầu tư</div>
+  <div class="times">
+    <span>Cập nhật 08:00</span>
+    <span>•</span>
+    <span>12:00</span>
+    <span>•</span>
+    <span>16:00</span>
+    <span>•</span>
+    <span>20:00</span>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
