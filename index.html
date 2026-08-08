@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Báo Cáo Tài Chính Toàn Cầu</title>
+<!-- fp:7d6f03 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0f;--card:rgba(255,255,255,.045);--border:rgba(255,255,255,.09);--up:#4ade80;--down:#fb7185;--gold:#fbbf24;--link:#93c5fd;--txt:#e5e7eb;--mut:#9ca3af}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--txt);font-family:'Commissioner',system-ui,sans-serif;padding:16px;min-height:100vh}
+.wrap{max-width:1200px;margin:0 auto}
+header{padding:18px 4px 4px}
+h1{font-size:1.45rem;font-weight:800;letter-spacing:.3px}
+.sub{color:var(--mut);font-size:.85rem;margin-top:6px}
+.badge{display:inline-block;margin-top:10px;background:rgba(251,191,36,.12);color:var(--gold);border:1px solid rgba(251,191,36,.35);border-radius:999px;padding:4px 12px;font-size:.78rem;font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:14px;margin-top:20px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 8px 24px rgba(0,0,0,.35);animation:flash .9s ease}
+.card.vn{border-color:rgba(251,191,36,.45);box-shadow:0 8px 28px rgba(251,191,36,.08)}
+@keyframes flash{0%{opacity:.35}100%{opacity:1}}
+.card-title{font-weight:700;font-size:1rem;margin-bottom:10px;display:flex;align-items:center;gap:8px;letter-spacing:.3px}
+.row{display:grid;grid-template-columns:1.15fr 1fr 1fr 1fr;gap:8px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.95rem;min-height:44px;align-items:center}
+.row3{grid-template-columns:1.15fr 1fr 1.2fr}
+.row:last-child{border-bottom:none}
+.nm{color:var(--mut);font-weight:500}
+.px{font-weight:700;text-align:right}
+.chg{text-align:right;font-weight:600}
+.up{color:var(--up)}.down{color:var(--down)}.flat{color:var(--mut)}
+.vn .nm,.vn .px{color:var(--gold)}
+.news-item{padding:11px 0;border-bottom:1px solid rgba(255,255,255,.05);min-height:44px;display:flex;flex-direction:column;gap:4px}
+.news-item:last-child{border-bottom:none}
+.news-item a{color:var(--link);text-decoration:none;font-size:.95rem;line-height:1.45;font-weight:500}
+.news-item a:hover{text-decoration:underline}
+.news-src{color:var(--mut);font-size:.76rem;text-transform:uppercase;letter-spacing:.5px}
+.note{font-size:.92rem;color:var(--txt);line-height:1.65;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.note:last-child{border-bottom:none}
+.tag{color:var(--gold);font-weight:700}
+footer{margin-top:24px;text-align:center;color:var(--mut);font-size:.8rem;padding:18px 0 26px;line-height:1.7}
+a.pg{color:var(--link);text-decoration:none}
+a.pg:hover{text-decoration:underline}
+@media(max-width:600px){
+body{padding:12px}
+h1{font-size:1.2rem}
+.grid{grid-template-columns:1fr;gap:12px}
+.row{font-size:.9rem;gap:6px}
+.row3{grid-template-columns:1.1fr 1fr 1.15fr}
+.news-item a{font-size:.92rem}
+.note{font-size:.9rem}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>📊 Báo Cáo Tài Chính Toàn Cầu</h1>
+<div class="sub">Dữ liệu: Yahoo Finance &amp; Binance API • Cập nhật Thứ Bảy, 08/08/2026 20:12 ICT</div>
+<div class="badge">🇻🇳 Financial News Digest</div>
+</header>
+
+<div class="grid">
+<div class="card"><div class="card-title">📈 PHỐ WALL</div><div class="row"><span class="nm">S&P 500</span><span class="px">7,757.64</span><span class="chg up">+47.68</span><span class="chg up">+0.62%</span></div><div class="row"><span class="nm">DJIA</span><span class="px">54,036.93</span><span class="chg up">+151.83</span><span class="chg up">+0.28%</span></div><div class="row"><span class="nm">Nasdaq</span><span class="px">26,690.62</span><span class="chg up">+342.27</span><span class="chg up">+1.30%</span></div><div class="row"><span class="nm">VIX</span><span class="px">14.90</span><span class="chg down">-0.25</span><span class="chg down">-1.65%</span></div></div>
+<div class="card"><div class="card-title">🌍 THỊ TRƯỜNG TOÀN CẦU</div><div class="row"><span class="nm">STOXX 600</span><span class="px">660.25</span><span class="chg up">+2.06</span><span class="chg up">+0.31%</span></div><div class="row"><span class="nm">DAX</span><span class="px">26,319.45</span><span class="chg up">+179.32</span><span class="chg up">+0.69%</span></div><div class="row"><span class="nm">CAC 40</span><span class="px">8,714.93</span><span class="chg up">+15.22</span><span class="chg up">+0.17%</span></div><div class="row"><span class="nm">FTSE 100</span><span class="px">10,901.09</span><span class="chg up">+33.19</span><span class="chg up">+0.31%</span></div><div class="row"><span class="nm">Nikkei 225</span><span class="px">65,606.71</span><span class="chg down">-76.55</span><span class="chg down">-0.12%</span></div><div class="row"><span class="nm">Hang Seng</span><span class="px">25,668.03</span><span class="chg up">+137.75</span><span class="chg up">+0.54%</span></div><div class="row"><span class="nm">Shanghai</span><span class="px">3,940.04</span><span class="chg up">+39.68</span><span class="chg up">+1.02%</span></div><div class="row"><span class="nm">Nifty 50</span><span class="px">24,570.65</span><span class="chg down">-65.35</span><span class="chg down">-0.27%</span></div></div>
+<div class="card"><div class="card-title">💵 FX & CHỈ SỐ</div><div class="row"><span class="nm">DXY</span><span class="px">99.60</span><span class="chg flat">0.00</span><span class="chg flat">+0.00%</span></div><div class="row"><span class="nm">EUR/USD</span><span class="px">1.16</span><span class="chg flat">0.00</span><span class="chg flat">-0.00%</span></div><div class="row"><span class="nm">USD/JPY</span><span class="px">157.75</span><span class="chg down">-0.66</span><span class="chg down">-0.42%</span></div><div class="row"><span class="nm">GBP/USD</span><span class="px">1.35</span><span class="chg flat">0.00</span><span class="chg flat">+0.00%</span></div></div>
+<div class="card vn"><div class="card-title">🇻🇳 THỊ TRƯỜNG VIỆT NAM</div><div class="row"><span class="nm">VN-Index</span><span class="px">1,768.06</span><span class="chg up">+3.28</span><span class="chg up">+0.19%</span></div><div class="row"><span class="nm">USD/VND</span><span class="px">26,203.00</span><span class="chg down">-31.00</span><span class="chg down">-0.12%</span></div></div>
+<div class="card"><div class="card-title">🛢 HÀNG HÓA</div><div class="row"><span class="nm">WTI Crude</span><span class="px">78.18</span><span class="chg up">+0.89</span><span class="chg up">+1.15%</span></div><div class="row"><span class="nm">Gold</span><span class="px">4,399.70</span><span class="chg up">+59.00</span><span class="chg up">+1.36%</span></div><div class="row"><span class="nm">Silver</span><span class="px">63.50</span><span class="chg up">+0.17</span><span class="chg up">+0.26%</span></div><div class="row"><span class="nm">Copper</span><span class="px">6.59</span><span class="chg up">+0.02</span><span class="chg up">+0.31%</span></div><div class="row"><span class="nm">Nat Gas</span><span class="px">2.66</span><span class="chg up">+0.02</span><span class="chg up">+0.83%</span></div></div>
+<div class="card"><div class="card-title">₿ CRYPTO</div><div class="row"><span class="nm">BTC</span><span class="px">65,015.99</span><span class="chg flat">N/A</span><span class="chg flat">-0.38%</span></div><div class="row"><span class="nm">ETH</span><span class="px">1,920.35</span><span class="chg flat">N/A</span><span class="chg flat">-0.55%</span></div><div class="row"><span class="nm">XRP</span><span class="px">1.04</span><span class="chg flat">N/A</span><span class="chg flat">+0.44%</span></div><div class="row"><span class="nm">SOL</span><span class="px">75.46</span><span class="chg flat">N/A</span><span class="chg flat">+2.18%</span></div><div class="row"><span class="nm">ADA</span><span class="px">0.20</span><span class="chg flat">N/A</span><span class="chg flat">-0.60%</span></div></div>
+<div class="card"><div class="card-title">💰 TRÁI PHIẾU (US Treasury)</div><div class="row row3"><span class="nm">US 10Y</span><span class="px">4.66%</span><span class="chg down">-1.0 bp</span></div><div class="row row3"><span class="nm">US 2Y</span><span class="px">3.96%</span><span class="chg down">-21.0 bp</span></div><div class="row row3"><span class="nm">US 30Y</span><span class="px">5.21%</span><span class="chg flat">-0.0 bp</span></div></div>
+<div class="card">
+<div class="card-title">🔥 TIN NỔI BẬT</div>
+<div class="news-item"><a href="https://news.google.com/rss/articles/CBMid0FVX3lxTFBrSXJEV1RNNXNyTWg1cnp6d1FnOVdGZGh5WHJfMnd6TDhTU3FhRkZpWGhrY3hiaWhFcFhYSEc4TFRZZnBnZjZic24tX2RiS1MwemZOSW80azYxQ1BVaVZIWFRRT2I3UlN4eUNIRldVWWdxZGpzWUcw0gF8QVVfeXFMTmhIa3ZqTzNWWmlYWktzSUZnNVlMR0FpUG93YUtZUjBpRkRnX2ZBemdzaGNaZlh1cXdsaXNNM2VFUUN4Zm93eUFaZ0ZrbS1ETmxqdnViMFhfd05LeUY4eWNjOXpBTkFOZnFHZDlPZTZsdENQaDFnd2hlUVozVg?oc=5" target="_blank" rel="noopener">S&P 500 rises to record close Friday and posts strongest week since April: Live updates - CNBC</a><span class="news-src">CNBC</span></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMifkFVX3lxTE5kUzI3cTh1VU83bjJkTHNIaFNZX3R0NDVZcG9UazF1cEp6UWd0Rk5kZnU5U2h2dUhHdXpzYmNGakF6ajA0Y1dnWXEzMkVkRXhuNV9xSHZkRk54S3JvcExGMmlVaWE0QVU3bFNKcXdBb1FpWURwWHIwRFF2WVpjZw?oc=5" target="_blank" rel="noopener">Stock Market News, August 7, 2026: S&P 500 Rises to Record After Jobs Data Misses Forecasts - WSJ</a><span class="news-src">WSJ</span></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMipwFBVV95cUxNV1lQbzJXazBhRVJLdmZXZk1LVFphRXBELTlBTE8ybDhxWDY0Z3BjVlg3UkRLemhremdlQm5jdVRVbFVVRDRrQ04zVzRHLUZ6bS10cWpyeV9OS2p5TEdjVGJWSmZMaXBnUjBTVThKNTczdXJPMUd1LTdHd2FGeUZVTmFOSU5WVmxGSy02LVJ2ZnN3OXV4YlN5cDRYRld0bW5sN0w5b1RYRdIBrAFBVV95cUxPXzhROG9mQVoteXNBVlVRTlM1YzFRWVc2T3VpdlFvOUttUWlUaFNldTlJNjBIb2FLRkpsb3F6RGZrY1NlOVZ0VHF6b2VvajJBdVpaTl8zWXRNMTczREpNc0RDNnNlcWxxX1NCVEpjUFN3bXpVVmtIR3MtRXFVd2xxNjR2QmN3YkZSTUExQzZMbTBnNFgzZElKci1ta0lPN2VReVhhTERFTGpQak83?oc=5" target="_blank" rel="noopener">Odds the Fed will hike in September tumble following big July jobs miss - CNBC</a><span class="news-src">CNBC</span></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxNQWtYLU1RWjduNXo5VDBjZXNxaUxiN3NhSW1QNjRteERubmk1Wm1LMUNtLWRrNjgtMlpRN3dvT19fbG4wM1pVcGhHUzhWTTFiWXJEM2ZraC1oMjVBNmdVZUtaemNJZTBid0swRUhwUnhfNXBMNmI0UE1tYm14Smtmc05vZjd1SENfOUVTcndmbVo3WVI5T3dEdWxmdDhlRVVqZk84cS1IaEFtcUk?oc=5" target="_blank" rel="noopener">Charting the Global Economy: US Employment Declines Unexpectedly - Bloomberg.com</a><span class="news-src">Bloomberg.com</span></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxOSERES2lGcGlzcE44UzJLUGdJY0RJc0xDRDVXbmlrVUxJS1ZtMjd6LWJvQmtZY2RSRVF5dDZxSUFkd3NNaEJPelFpUkZrUU5QaUVtMVFSWGVRODVaSDMwVVRiSFBYdkhCM2t2UmFhUEdjQWhNY21yV2pMMjdiY2tFeW9VMmE?oc=5" target="_blank" rel="noopener">Why a Fed Rate Cut Is Coming and How the Market Will React - Barron's</a><span class="news-src">Barron's</span></div><div class="news-item"><a href="https://www.coindesk.com/policy/2026/08/08/u-s-senate-opens-first-stage-of-crypto-clarity-act-voting-to-give-bill-a-chance-next-month" target="_blank" rel="noopener">U.S. Senate opens first stage of crypto Clarity Act voting to give bill a chance next month</a><span class="news-src">CoinDesk</span></div><div class="news-item"><a href="https://cointelegraph.com/markets/bitcoin-price-compresses-as-us-pmi-data-brings-new-stagflation-warning?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound" target="_blank" rel="noopener">Bitcoin price coils under $65K as US PMI data brings new ‘stagflation’ warning</a><span class="news-src">CoinTelegraph</span></div><div class="news-item"><a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxOT0pLVHdfTHFISHJ1UUg1SllDZDJNUHFJazZubjZPX09ZRlA0TF90WGotTnp3QUw0MG5hWE5kaEdLamlWcnVfMzRqWnZTOXpMcE9WemNlak5xYTRTRWhQbW5RSkFvcTQ1UGJZWkI1OHM4elJwdmVyUlRfdUh2MGo5VDdGN0VRZw?oc=5" target="_blank" rel="noopener">Bitcoin, Ethereum and XRP price outlook after CLARITY Act delay - AltcoinBuzz</a><span class="news-src">AltcoinBuzz</span></div>
+</div>
+<div class="card">
+<div class="card-title">📈 NHẬN ĐỊNH</div>
+
+<div class="note">📈 <b>Chứng khoán Mỹ:</b> S&amp;P 500 đóng cửa kỷ lục 7.757,64 (+0,62%) — tuần mạnh nhất kể từ tháng 4 (CNBC). Nasdaq +1,30%, Dow +0,28%. VIX hạ còn 14,90 (-1,65%).</div>
+<div class="note">🏛️ <b>Fed:</b> Báo cáo việc làm tháng 7 thấp hơn dự báo (Bloomberg: employment declines unexpectedly) khiến kỳ vọng Fed tăng lãi suất tháng 9 giảm mạnh (CNBC, CBS News). Lợi suất US 2Y giảm 21bp còn 3,961% — <span class="tag">[ƯỚC TÍNH]</span> diễn giải từ biến động giá trái phiếu: thị trường đang định giá lại lộ trình lãi suất, đây không phải thông tin chính thức.</div>
+<div class="note">🛢 <b>Hàng hóa:</b> Vàng +1,36% lên 4.399,70 USD, WTI +1,15% còn 78,18 USD — dầu tăng trong bối cảnh chờ tin eo biển Hormuz (Investopedia).</div>
+<div class="note">₿ <b>Crypto:</b> BTC 65.015 USD (-0,38%), vẫn co cụm dưới 65K; SOL +2,18% dẫn đầu; XRP +0,44%; ETH -0,55%. CLARITY Act: Thượng viện Mỹ mở bỏ phiếu giai đoạn đầu (CoinDesk); giới phân tích cho rằng dự luật gần như "chết" sau khi trì hoãn (Benzinga).</div>
+<div class="note">🇻🇳 <b>Việt Nam:</b> VN-Index 1.768,06 (+0,19%); USD/VND 26.203 (-0,12%).</div>
+<div class="note"><span class="tag">[ƯỚC TÍNH]</span> Tổng quan: tâm lý risk-on (cổ phiếu tăng, VIX thấp, lợi suất giảm). Rủi ro chính: địa chính trị Trung Đông (Hormuz) và cảnh báo stagflation từ PMI Mỹ (CoinTelegraph). Đây là nhận định dựa trên dữ liệu có sẵn, không phải thông tin chính thức.</div>
+
+</div>
+</div>
+
+<footer>
+Nô Tì • Financial News Digest • Cập nhật 08:00 • 12:00 • 16:00 • 20:00<br>
+🔗 <a class="pg" href="https://zdapricorn.github.io/hermes-financial-news/" target="_blank" rel="noopener">zdapricorn.github.io/hermes-financial-news</a>
+</footer>
+</div>
+</body>
+</html>
